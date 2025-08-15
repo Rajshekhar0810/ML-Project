@@ -1,0 +1,5 @@
+pandas
+numpy
+seaborn
+matplotlib
+#-e .    # -e . is used to run the setup.py in the current directory when we install the requirements    
