@@ -5,6 +5,9 @@ from src.logger import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationConfig
+
 
 
 @dataclass
@@ -39,6 +42,13 @@ class DataIngestion:
             )
         except Exception as e:
             raise CustomException(e, sys)
+
+if __name__ == "__main__":
+    object = DataIngestion()  # Create an instance of the DataIngestion class.
+    train_data, test_data = object.initiate_data_ingestion()  # Call the method to initiate data ingestion. 
+
+    data_transformation = DataTransformation()
+    data_transformation.initiate_data_transformation(train_data, test_data)            
 
 # This code defines a DataIngestion class that handles the process of reading a dataset, splitting it into training and testing sets, and saving these sets to specified paths.
 # It uses logging to track the progress and any issues that arise during the process. The configuration for file paths is managed using a dataclass.
