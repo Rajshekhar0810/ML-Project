@@ -1,14 +1,18 @@
 import sys       # Any exception is getting controlled sys library will have that information.
-                #The sys module gives access to system-specific functions and variables.      
+                #The sys module gives access to system-specific functions and variables. 
+from src.logger import logging  # Importing the logging module from the src.logger file.
+                     
 #_, _, exc_tb = “ignore first two values, store only the traceback object in exc_tb.”
 #It’s purely tuple unpacking syntax, _ is a placeholder for unused values.
+
 
 def error_message_details(error,error_detail: sys):  #error_detail: sys parameter-This is just the sys module passed into the function.t is used to call sys.exc_info().
     _,_,exc_tb = error_detail.exc_info()
     error_message = "Error occurred in python script name [{0}] line number [{1}] error message [{2}]".format(
         exc_tb.tb_frame.f_code.co_filename,
         exc_tb.tb_lineno,str(error)
-    )
+    )  
+    
     return error_message
 
 #error_message_details - This formats a detailed error message from an exception.
