@@ -120,8 +120,12 @@ class DataTransformation:
             )
         except Exception as e:
             raise CustomException(e,sys)
+        
 
 
+# np.c_[] = shorthand for column-wise concatenation in NumPy.It takes the input features (X) and appends the target (y) as the last column.
+#train_arr → one combined NumPy array [X | y]
+#This code combines features and target into one NumPy array for storage, transport, or pipeline convenience — but when training, you’ll still split them back as (X, y)
 
 # Summary of what we’ve done in this step
 # Read raw train and test CSVs into pandas DataFrames.
